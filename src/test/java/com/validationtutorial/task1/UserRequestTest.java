@@ -45,6 +45,32 @@ class UserRequestTest {
     }
 
     @Test
+    public void usernameが空文字のときにバリデーションエラーとなること() {
+        UserRequest userRequest = new UserRequest("", "password", "password");
+        Set<ConstraintViolation<UserRequest>> violations = validator.validate(userRequest);
+        assertThat(violations).hasSize(2);
+        assertThat(violations)
+                .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
+                .containsExactlyInAnyOrder(
+                        tuple("username", "ユーザー名を入力してください"),
+                        tuple("username", "ユーザー名は3文字以上20文字以下である必要があります")
+                );
+    }
+
+    @Test
+    public void passwordが空文字のときにバリデーションエラーとなること() {
+        UserRequest userRequest = new UserRequest("user", "", "");
+        Set<ConstraintViolation<UserRequest>> violations = validator.validate(userRequest);
+        assertThat(violations).hasSize(2);
+        assertThat(violations)
+                .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
+                .containsExactlyInAnyOrder(
+                        tuple("password", "パスワードを入力してください"),
+                        tuple("password", "パスワードは8文字以上30文字以下である必要があります")
+                );
+    }
+
+    @Test
     public void passwordとconfirmPasswordが一致しないときにバリデーションエラーとなること() {
         UserRequest userRequest = new UserRequest("user", "password", "falsepassword");
         Set<ConstraintViolation<UserRequest>> violations = validator.validate(userRequest);
