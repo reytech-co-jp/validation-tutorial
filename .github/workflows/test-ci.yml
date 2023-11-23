@@ -39,7 +39,7 @@ jobs:
           --arg commit '<${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }} | ${{ github.sha }}>' '{
             attachments: [
               {
-                pretext: ":github: Test ${{ job.status }}",
+                pretext: "Test ${{ job.status }}",
                 color: $color,
                 fields: [
                   {
