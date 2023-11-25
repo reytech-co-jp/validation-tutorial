@@ -18,8 +18,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
       - name: Test with Gradle
         run: ./gradlew test
       - name: Slack Notification
