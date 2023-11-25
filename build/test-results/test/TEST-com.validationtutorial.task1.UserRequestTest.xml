@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.validationtutorial.task1.UserRequestTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-11-25T07:46:38" hostname="DESKTOP-L8P0MQN" time="0.1">
+  <properties/>
+  <testcase name="[1] usernameCount=3, passwordCount=8, confirmPasswordCount=8" classname="com.validationtutorial.task1.UserRequestTest" time="0.096"/>
+  <testcase name="[2] usernameCount=20, passwordCount=30, confirmPasswordCount=30" classname="com.validationtutorial.task1.UserRequestTest" time="0.001"/>
+  <system-out><![CDATA[16:46:38.057 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.1.Final
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
