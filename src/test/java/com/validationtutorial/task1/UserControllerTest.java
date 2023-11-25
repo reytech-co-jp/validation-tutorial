@@ -20,6 +20,20 @@ class UserControllerTest {
     private MockMvc mockMvc;
 
     @Test
+    public void 有効なusernameとpasswordとconfirmPassword場合はユーザーを登録できること() throws Exception {
+        UserRequest userRequest = new UserRequest("username", "password", "password");
+        ResultActions actual = mockMvc.perform(post("/users")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(OBJECT_MAPPER.writeValueAsString(userRequest)));
+        actual.andExpect(status().isOk())
+                .andExpect(content().json("""
+                        {
+                            "message": "successfully created"
+                        }
+                        """));
+    }
+
+    @Test
     public void ユーザー登録時にusernameとpasswordとconfirmPasswordがnullの場合は400エラーとなること() throws Exception {
         UserRequest userRequest = new UserRequest(null, null, null);
         ResultActions actual = mockMvc.perform(post("/users")

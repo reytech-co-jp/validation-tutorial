@@ -9,6 +9,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.groups.Tuple.tuple;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class UserRequestTest {
     private static Validator validator;
@@ -17,6 +19,21 @@ class UserRequestTest {
     public static void setUpValidator() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "3, 8, 8",
+            "20, 30, 30"
+    })
+    public void 有効なusernameとpasswordとconfirmPassword場合はバリデーションエラーとならないこと(String usernameCount, String passwordCount, String confirmPasswordCount) {
+        UserRequest userRequest = new UserRequest(
+                "u".repeat(Integer.valueOf(usernameCount)),
+                "p".repeat(Integer.valueOf(passwordCount)),
+                "p".repeat(Integer.valueOf(confirmPasswordCount))
+        );
+        Set<ConstraintViolation<UserRequest>> violations = validator.validate(userRequest);
+        assertThat(violations).isEmpty();
     }
 
     @Test
