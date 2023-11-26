@@ -9,7 +9,7 @@ FORMAT: 1A
 ユーザーを登録します。
 以下のパラメータをJSON形式で送信します。
 
-+ user (string, required) - ユーザー名。3文字以上、20文字以内。
++ username (string, required) - ユーザー名。3文字以上、20文字以内。
 + password (string, required) - パスワード。8文字以上、30文字以内。
 + confirmPassword (string) - 確認用パスワード。パスワードと一致。
 
@@ -19,7 +19,7 @@ FORMAT: 1A
 curl -X POST 'http://localhost:8080/users' \
 -H 'Content-Type: application/json' \
 -d '{
-    "user": "user",
+    "username": "user",
     "password": "password",
     "confirmPassword": "password"
 }' 
@@ -28,7 +28,7 @@ curl -X POST 'http://localhost:8080/users' \
 + Request (application/json)
 
 	      {
-	         "user": "user",
+	         "username": "user",
 	         "password": "password",
 	         "confirmPassword": "password"
 	      }
@@ -42,10 +42,11 @@ curl -X POST 'http://localhost:8080/users' \
 + Response 400
 	+ Body
 		{
+		"status":"BAD_REQUEST"
 		"message":"validation error",
 		"errors":[
 		{
-		"field":"user",
+		"field":"username",
 		"messages":[
 		"ユーザー名を入力してください",
 		"ユーザー名は3文字以上20文字以下である必要があります"
