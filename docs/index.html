@@ -2,7 +2,7 @@
 以下のパラメータをJSON形式で送信します。</p>
 <ul>
 <li>
-<p>user (string, required) - ユーザー名。3文字以上、20文字以内。</p>
+<p>username (string, required) - ユーザー名。3文字以上、20文字以内。</p>
 </li>
 <li>
 <p>password (string, required) - パスワード。8文字以上、30文字以内。</p>
@@ -14,39 +14,40 @@
 <h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/users</span></div><div class="title"><strong>Request&nbsp;&nbsp;<code>Sample</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>curl -X POST 'http://localhost:8080/users' \
 -H 'Content-Type: application/json' \
 -d '{
-    "user": "user",
+    "username": "user",
     "password": "password",
     "confirmPassword": "password"
 }'</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">user</span>": <span class="hljs-value"><span class="hljs-string">"user"</span></span>,
+  "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"user"</span></span>,
   "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"password"</span></span>,
   "<span class="hljs-attribute">confirmPassword</span>": <span class="hljs-value"><span class="hljs-string">"password"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"successfully created"</span>
 </span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Body</h5><pre><code>{
-  "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"validation error"</span></span>,
-  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
-    {
-      "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"user"</span></span>,
-      "<span class="hljs-attribute">messages</span>": <span class="hljs-value">[
-        <span class="hljs-string">"ユーザー名を入力してください"</span>,
-        <span class="hljs-string">"ユーザー名は3文字以上20文字以下である必要があります"</span>
-      ]
-    </span>},
-    {
-      "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"password"</span></span>,
-      "<span class="hljs-attribute">messages</span>": <span class="hljs-value">[
-        <span class="hljs-string">"パスワードを入力してください"</span>,
-        <span class="hljs-string">"パスワードは8文字以上30文字以下である必要があります"</span>
-      ]
-    </span>},
-    {
-      "<span class="hljs-attribute">field</span>": <span class="hljs-value"><span class="hljs-string">"passwordMatching"</span></span>,
-      "<span class="hljs-attribute">messages</span>": <span class="hljs-value">[
-        <span class="hljs-string">"パスワードと確認用パスワードが一致していません"</span>
-      ]
-    </span>}
-  ]
+"<span class="hljs-attribute">status</span>":<span class="hljs-value"><span class="hljs-string">"BAD_REQUEST"</span>
+<span class="hljs-string">"message"</span>:<span class="hljs-string">"validation error"</span></span>,
+"<span class="hljs-attribute">errors</span>":<span class="hljs-value">[
+{
+"<span class="hljs-attribute">field</span>":<span class="hljs-value"><span class="hljs-string">"username"</span></span>,
+"<span class="hljs-attribute">messages</span>":<span class="hljs-value">[
+<span class="hljs-string">"ユーザー名を入力してください"</span>,
+<span class="hljs-string">"ユーザー名は3文字以上20文字以下である必要があります"</span>
+]
+</span>},
+{
+"<span class="hljs-attribute">field</span>":<span class="hljs-value"><span class="hljs-string">"password"</span></span>,
+"<span class="hljs-attribute">messages</span>":<span class="hljs-value">[
+<span class="hljs-string">"パスワードを入力してください"</span>,
+<span class="hljs-string">"パスワードは8文字以上30文字以下である必要があります"</span>
+]
+</span>},
+{
+"<span class="hljs-attribute">field</span>":<span class="hljs-value"><span class="hljs-string">"passwordMatching"</span></span>,
+"<span class="hljs-attribute">messages</span>":<span class="hljs-value">[
+<span class="hljs-string">"パスワードと確認用パスワードが一致していません"</span>
+]
+</span>}
+]
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 26 Nov 2023</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
