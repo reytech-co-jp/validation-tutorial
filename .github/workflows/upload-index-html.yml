@@ -1,0 +1,35 @@
+name: Upload Index.html
+
+on:
+  pull_request:
+    # pathsフィルタのパターンにマッチするパスがあれば、ワークフローは実行される
+    paths:
+      - 'md/user-api.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+      
+      - name: Up container
+        run: docker compose up -d
+      
+      - name: Exec aglio
+        run: docker compose exec api aglio -i md/user-api.md -o docs/index.html
+      
+      - name: Commit files
+        run: |
+          git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git config --local user.name "${GITHUB_ACTOR}"
+          git add .
+          git commit -m "[CI] Update index.html" -a
+      
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{github.head_ref}}
