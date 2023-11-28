@@ -36,34 +36,34 @@ curl -X POST 'http://localhost:8080/users' \
 + Response 201 (application/json)
 	+ Body
 		{
-		"message": "successfully created"
+			"message": "successfully created"
 		}
 
 + Response 400
 	+ Body
 		{
-		"status":"BAD_REQUEST"
-		"message":"validation error",
-		"errors":[
-		{
-		"field":"username",
-		"messages":[
-		"ユーザー名を入力してください",
-		"ユーザー名は3文字以上20文字以下である必要があります"
-		]
-		},
-		{
-		"field":"password",
-		"messages":[
-		"パスワードを入力してください",
-		"パスワードは8文字以上30文字以下である必要があります"
-		]
-		},
-		{
-		"field":"passwordMatching",
-		"messages":[
-		"パスワードと確認用パスワードが一致していません"
-		]
-		}
-		]
+			"status":"BAD_REQUEST"
+			"message":"validation error",
+			"errors":[
+				{
+					"field":"username",
+					"messages":[
+						"ユーザー名を入力してください",
+						"ユーザー名は3文字以上20文字以下である必要があります"
+					]
+				},
+				{
+					"field":"password",
+					"messages":[
+						"パスワードを入力してください",
+						"パスワードは8文字以上30文字以下である必要があります"
+					]
+				},
+				{
+					"field":"passwordMatching",
+					"messages":[
+						"パスワードと確認用パスワードが一致していません"
+					]
+				}
+			]
 		}
