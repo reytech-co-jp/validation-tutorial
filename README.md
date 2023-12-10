@@ -48,3 +48,24 @@ validationtutorial/
 - Slackへの通知
 	- 通知先: dev_notification
 	- 参考: https://github.com/renangton/task5_crud_read_and_create/blob/main/.github/workflows/test-ci.yml
+
+# 課題2
+
+## バリデーション仕様
+
+※詳細は[API仕様書](https://reytech-co-jp.github.io/validation-tutorial/)を確認してください
+
+- productName
+	- null及び空文字禁止
+	- 2文字以上20文字以下
+- category
+	- null及び空文字禁止
+	- Electronics, Clothing, Booksのみ許可する
+- price
+	- null禁止
+	- 0より大きい
+	- 1000000以下
+
+## その他条件
+
+- バリデーションメッセージはValidationMessages.propertiesを使用すること
