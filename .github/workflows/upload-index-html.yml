@@ -4,7 +4,7 @@ on:
   pull_request:
     # pathsフィルタのパターンにマッチするパスがあれば、ワークフローは実行される
     paths:
-      - 'md/user-api.md'
+      - 'md/validation-api.md'
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
         run: docker compose up -d
       
       - name: Exec aglio
-        run: docker compose exec api aglio -i md/user-api.md -o docs/index.html
+        run: docker compose exec api aglio -i md/validation-api.md -o docs/index.html
       
       - name: Commit files
         run: |
