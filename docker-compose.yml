@@ -12,4 +12,4 @@ services:
     # -i: API仕様ファイル
     # -s: プレビューサーバー起動
     # -h: プレビューサーバーをバインドするためのアドレス
-    command: aglio -i ./md/user-api.md -s -h 0.0.0.0
+    command: aglio -i ./md/validation-api.md -s -h 0.0.0.0
