@@ -68,4 +68,18 @@ validationtutorial/
 
 ## その他条件
 
-- バリデーションメッセージはValidationMessages.propertiesを使用すること
+バリデーションメッセージはValidationMessages.propertiesを使用すること
+```
+#NotBlank
+E0001=入力してください
+#NotNull
+E0002=入力してください
+#Size
+E0003={min}文字以上{max}文字以下である必要があります
+#Positive
+E0004=0より大きい値である必要があります
+#Max
+E0005={value}以下である必要があります
+#ValidCategory
+ValidCategory=無効なカテゴリです
+```
