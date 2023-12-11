@@ -64,7 +64,7 @@ validationtutorial/
 - price(Integer)
 	- null禁止
 	- 0より大きい
-	- 1000000以下
+	- 1,000,000以下
 
 ## その他条件
 
