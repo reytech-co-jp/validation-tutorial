@@ -4,8 +4,6 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
 public class CategoryValidator implements ConstraintValidator<ValidCategory, String> {
-    private static final String[] VALID_CATEGORIES = {"Electronics", "Clothing", "Books"};
-
     @Override
     public void initialize(ValidCategory constraintAnnotation) {
     }
@@ -16,8 +14,8 @@ public class CategoryValidator implements ConstraintValidator<ValidCategory, Str
             return false;
         }
 
-        for (String validCategory : VALID_CATEGORIES) {
-            if (validCategory.equals(value)) {
+        for (Category validCategory : Category.values()) {
+            if (validCategory.name().equalsIgnoreCase(value)) {
                 return true;
             }
         }

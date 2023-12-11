@@ -67,8 +67,8 @@ validationtutorial/
 	- 1,000,000以下
 
 ## その他条件
-
-バリデーションメッセージはValidationMessages.propertiesを使用すること
+- カテゴリーの種類はEnumで定義すること
+- バリデーションメッセージはValidationMessages.propertiesを使用すること
 ```
 #NotBlank
 E0001=入力してください
