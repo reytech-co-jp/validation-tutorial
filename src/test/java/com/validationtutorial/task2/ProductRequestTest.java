@@ -63,6 +63,19 @@ class ProductRequestTest {
     }
 
     @Test
+    public void productNameが半角スペースのときにバリデーションエラーとなること() {
+        ProductRequest productRequest = new ProductRequest(" ", "Books", 100);
+        Set<ConstraintViolation<ProductRequest>> violations = validator.validate(productRequest);
+        assertThat(violations).hasSize(2);
+        assertThat(violations)
+                .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
+                .containsExactlyInAnyOrder(
+                        tuple("productName", "商品名を入力してください"),
+                        tuple("productName", "商品名は2文字以上20文字以下である必要があります")
+                );
+    }
+
+    @Test
     public void productNameが2文字未満のときにバリデーションエラーとなること() {
         ProductRequest productRequest = new ProductRequest("p", "Books", 100);
         Set<ConstraintViolation<ProductRequest>> violations = validator.validate(productRequest);
@@ -102,6 +115,19 @@ class ProductRequestTest {
     @Test
     public void categoryが空文字のときにバリデーションエラーとなること() {
         ProductRequest productRequest = new ProductRequest("product", "", 100);
+        Set<ConstraintViolation<ProductRequest>> violations = validator.validate(productRequest);
+        assertThat(violations).hasSize(2);
+        assertThat(violations)
+                .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
+                .containsExactlyInAnyOrder(
+                        tuple("category", "カテゴリを入力してください"),
+                        tuple("category", "無効なカテゴリです")
+                );
+    }
+
+    @Test
+    public void categoryが半角スペースのときにバリデーションエラーとなること() {
+        ProductRequest productRequest = new ProductRequest("product", " ", 100);
         Set<ConstraintViolation<ProductRequest>> violations = validator.validate(productRequest);
         assertThat(violations).hasSize(2);
         assertThat(violations)
