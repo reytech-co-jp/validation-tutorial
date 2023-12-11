@@ -77,7 +77,7 @@ curl -X POST 'http://localhost:8080/users' \
 
 + productName (string, required) - 商品名。3文字以上、20文字以内。
 + category (string, required) - カテゴリー。Electronics, Clothing, Booksのみ許可。
-+ price (integer, required) - 価格。0より大きい。1000000以下。
++ price (integer, required) - 価格。0より大きい。1,000,000以下。
 
 + Request Sample
 
