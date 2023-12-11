@@ -55,13 +55,13 @@ validationtutorial/
 
 ※詳細は[API仕様書](https://reytech-co-jp.github.io/validation-tutorial/)を確認してください
 
-- productName
+- productName(String)
 	- null及び空文字、半角スペース禁止
 	- 2文字以上20文字以下
-- category
+- category(String)
 	- null及び空文字、半角スペース禁止
 	- Electronics, Clothing, Booksのみ許可する
-- price
+- price(Integer)
 	- null禁止
 	- 0より大きい
 	- 1000000以下
