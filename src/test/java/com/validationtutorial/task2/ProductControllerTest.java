@@ -47,11 +47,11 @@ class ProductControllerTest {
                             "errors": [
                                 {
                                     "field": "productName",
-                                    "message": "商品名を入力してください"
+                                    "message": "入力してください"
                                 },
                                 {
                                     "field": "category",
-                                    "message": "カテゴリを入力してください"
+                                    "message": "入力してください"
                                 },
                                 {
                                     "field": "category",
@@ -59,7 +59,7 @@ class ProductControllerTest {
                                 },
                                 {
                                     "field": "price",
-                                    "message": "価格を入力してください"
+                                    "message": "入力してください"
                                 }
                             ]
                         }

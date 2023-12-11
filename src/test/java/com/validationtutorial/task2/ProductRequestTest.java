@@ -45,7 +45,7 @@ class ProductRequestTest {
         assertThat(violations)
                 .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
                 .containsExactlyInAnyOrder(
-                        tuple("productName", "商品名を入力してください")
+                        tuple("productName", "入力してください")
                 );
     }
 
@@ -57,8 +57,8 @@ class ProductRequestTest {
         assertThat(violations)
                 .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
                 .containsExactlyInAnyOrder(
-                        tuple("productName", "商品名を入力してください"),
-                        tuple("productName", "商品名は2文字以上20文字以下である必要があります")
+                        tuple("productName", "入力してください"),
+                        tuple("productName", "2文字以上20文字以下である必要があります")
                 );
     }
 
@@ -70,8 +70,8 @@ class ProductRequestTest {
         assertThat(violations)
                 .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
                 .containsExactlyInAnyOrder(
-                        tuple("productName", "商品名を入力してください"),
-                        tuple("productName", "商品名は2文字以上20文字以下である必要があります")
+                        tuple("productName", "入力してください"),
+                        tuple("productName", "2文字以上20文字以下である必要があります")
                 );
     }
 
@@ -83,7 +83,7 @@ class ProductRequestTest {
         assertThat(violations)
                 .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
                 .containsExactlyInAnyOrder(
-                        tuple("productName", "商品名は2文字以上20文字以下である必要があります")
+                        tuple("productName", "2文字以上20文字以下である必要があります")
                 );
     }
 
@@ -95,7 +95,7 @@ class ProductRequestTest {
         assertThat(violations)
                 .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
                 .containsExactlyInAnyOrder(
-                        tuple("productName", "商品名は2文字以上20文字以下である必要があります")
+                        tuple("productName", "2文字以上20文字以下である必要があります")
                 );
     }
 
@@ -107,7 +107,7 @@ class ProductRequestTest {
         assertThat(violations)
                 .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
                 .containsExactlyInAnyOrder(
-                        tuple("category", "カテゴリを入力してください"),
+                        tuple("category", "入力してください"),
                         tuple("category", "無効なカテゴリです")
                 );
     }
@@ -120,7 +120,7 @@ class ProductRequestTest {
         assertThat(violations)
                 .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
                 .containsExactlyInAnyOrder(
-                        tuple("category", "カテゴリを入力してください"),
+                        tuple("category", "入力してください"),
                         tuple("category", "無効なカテゴリです")
                 );
     }
@@ -133,7 +133,7 @@ class ProductRequestTest {
         assertThat(violations)
                 .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
                 .containsExactlyInAnyOrder(
-                        tuple("category", "カテゴリを入力してください"),
+                        tuple("category", "入力してください"),
                         tuple("category", "無効なカテゴリです")
                 );
     }
@@ -158,7 +158,7 @@ class ProductRequestTest {
         assertThat(violations)
                 .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
                 .containsExactlyInAnyOrder(
-                        tuple("price", "価格を入力してください")
+                        tuple("price", "入力してください")
                 );
     }
 
@@ -170,7 +170,7 @@ class ProductRequestTest {
         assertThat(violations)
                 .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
                 .containsExactlyInAnyOrder(
-                        tuple("price", "価格は0より大きい値である必要があります")
+                        tuple("price", "0より大きい値である必要があります")
                 );
     }
 
@@ -182,7 +182,7 @@ class ProductRequestTest {
         assertThat(violations)
                 .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
                 .containsExactlyInAnyOrder(
-                        tuple("price", "価格は1000000以下である必要があります")
+                        tuple("price", "1000000以下である必要があります")
                 );
     }
 }
