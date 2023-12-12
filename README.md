@@ -61,6 +61,7 @@ validationtutorial/
 - category(String)
 	- null及び空文字、半角スペース禁止
 	- Electronics, Clothing, Booksのみ許可する
+		- 大文字小文字の違いは無視する
 - price(Integer)
 	- null禁止
 	- 0より大きい
