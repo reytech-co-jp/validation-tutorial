@@ -48,3 +48,39 @@ validationtutorial/
 - Slackへの通知
 	- 通知先: dev_notification
 	- 参考: https://github.com/renangton/task5_crud_read_and_create/blob/main/.github/workflows/test-ci.yml
+
+# 課題2
+
+## バリデーション仕様
+
+※詳細は[API仕様書](https://reytech-co-jp.github.io/validation-tutorial/)を確認してください
+
+- productName(String)
+	- null及び空文字、半角スペース禁止
+	- 2文字以上20文字以下
+- category(String)
+	- null及び空文字、半角スペース禁止
+	- Electronics, Clothing, Booksのみ許可する
+		- 大文字小文字の違いは無視する
+- price(Integer)
+	- null禁止
+	- 0より大きい
+	- 1,000,000以下
+
+## その他条件
+- カテゴリーの種類はEnumで定義すること
+- バリデーションメッセージはValidationMessages.propertiesを使用すること
+```
+#NotBlank
+E0001=入力してください
+#NotNull
+E0002=入力してください
+#Size
+E0003={min}文字以上{max}文字以下である必要があります
+#Positive
+E0004=0より大きい値である必要があります
+#Max
+E0005={value}以下である必要があります
+#ValidCategory
+ValidCategory=無効なカテゴリです
+```
