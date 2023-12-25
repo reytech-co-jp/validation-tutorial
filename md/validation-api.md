@@ -75,9 +75,10 @@ curl -X POST 'http://localhost:8080/users' \
 商品を登録します。
 以下のパラメータをJSON形式で送信します。
 
-+ productName (string, required) - 商品名。3文字以上、20文字以内。
++ productName (string, required) - 商品名。2文字以上、20文字以内。
 + category (string, required) - カテゴリー。Electronics, Clothing, Booksのみ許可。
 + price (integer, required) - 価格。0より大きい。1,000,000以下。
++ seller(string, required) - 販売者。2文字以上、20文字以内。
 
 + Request Sample
 
@@ -87,7 +88,8 @@ curl -X POST 'http://localhost:8080/products' \
 -d '{
     "productName": "iPhone15",
     "category": "Electronics",
-    "price": "150000"
+    "price": "150000",
+    "seller": "Yamada"
 }' 
 ```
 
@@ -96,7 +98,8 @@ curl -X POST 'http://localhost:8080/products' \
 	      {
 	         "productName": "iPhone15",
 	         "category": "Electronics",
-	         "price": "150000"
+	         "price": "150000",
+           "seller": "Yamada"
 	      }
 
 + Response 201 (application/json)
@@ -132,6 +135,10 @@ curl -X POST 'http://localhost:8080/products' \
 						"0より大きい値である必要があります",
 						"1000000以下である必要があります"
 					]
+				},
+				{
+					"field": "seller",
+					"message": "無効な販売者です"
 				}
 			]
 		}
