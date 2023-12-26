@@ -260,4 +260,28 @@ class ProductRequestTest {
         Set<ConstraintViolation<ProductRequest>> violations = validator.validate(productRequest);
         assertThat(violations).isEmpty();
     }
+
+    @Test
+    public void sellerが19文字の通常文字と1文字のサロゲートペアの漢字のときにバリデーションエラーとなること() {
+        ProductRequest productRequest = new ProductRequest("product", "Books", 100, "s".repeat(19) + "𠮷");
+        Set<ConstraintViolation<ProductRequest>> violations = validator.validate(productRequest);
+        assertThat(violations).hasSize(1);
+        assertThat(violations)
+                .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
+                .containsExactlyInAnyOrder(
+                        tuple("seller", "無効な販売者です")
+                );
+    }
+
+    @Test
+    public void sellerが19文字の通常文字と1文字の絵文字のときにバリデーションエラーとなること() {
+        ProductRequest productRequest = new ProductRequest("product", "Books", 100, "s".repeat(19) + "😊");
+        Set<ConstraintViolation<ProductRequest>> violations = validator.validate(productRequest);
+        assertThat(violations).hasSize(1);
+        assertThat(violations)
+                .extracting(violation -> violation.getPropertyPath().toString(), ConstraintViolation::getMessage)
+                .containsExactlyInAnyOrder(
+                        tuple("seller", "無効な販売者です")
+                );
+    }
 }
