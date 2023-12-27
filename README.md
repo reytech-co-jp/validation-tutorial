@@ -84,3 +84,22 @@ E0005={value}以下である必要があります
 #ValidCategory
 ValidCategory=無効なカテゴリです
 ```
+
+# 課題2.5
+課題2に以下を追加する
+
+## バリデーション仕様
+- seller(String)
+  - null及び空文字、半角スペース禁止
+  - 2文字以上20文字以下
+
+## その他仕様
+- sellerは既存のアノテーションを組み合わせたアノテーションの作成すること
+- バリデーションメッセージはValidationMessages.propertiesを使用すること
+```
+#ValidSeller
+ValidSeller=無効な販売者です
+```
+- ProductRequestTestにてsellerに1文字のサロゲートペアの漢字と絵文字を渡した時にそれぞれバリデーションエラーとならないことを確認すること
+  - 現在作成済みの正常系のテストと別で作成すること
+- ProductRequestTestにてsellerに19文字の通常文字と1文字のサロゲートペアの漢字、絵文字を渡した時にそれぞれバリデーションエラーとなることを確認すること
